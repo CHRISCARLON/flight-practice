@@ -1,0 +1,22 @@
+[package]
+name = "flight-practice"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[dependencies]
+arrow = "56.0.0"
+arrow-flight = "56.0.0"
+arrow-ipc = "56.0.0"
+arrow-schema = "56.0.0"
+futures = "0.3.31"
+serde_json = "1.0.142"
+tokio = { version = "1.47.1", features = ["full"] }
+tonic = "0.13.0"
