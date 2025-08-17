@@ -119,9 +119,6 @@ impl DataProcessor {
     }
 
     fn analyze_data_format(&self, data: &[u8]) {
-        let is_arrow_file =
-            data.len() >= 12 && &data[0..6] == b"ARROW1" && &data[data.len() - 6..] == b"ARROW1";
-
         let has_flatbuffer_header = data.len() >= 8;
         let message_length = if has_flatbuffer_header {
             u32::from_le_bytes([data[0], data[1], data[2], data[3]])
@@ -131,7 +128,6 @@ impl DataProcessor {
 
         println!("Data analysis:");
         println!("Size: {} bytes", data.len());
-        println!("Is Arrow File format: {}", is_arrow_file);
         println!("Has FlatBuffer header: {}", has_flatbuffer_header);
         if has_flatbuffer_header {
             println!("Message length: {} bytes", message_length);
