@@ -1,6 +1,7 @@
-mod server;
 mod data_processor;
+mod server;
 mod types;
+mod validator;
 
 use arrow_flight::flight_service_server::FlightServiceServer;
 use server::SimpleFlightServer;
